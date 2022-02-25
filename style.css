@@ -1,0 +1,163 @@
+/* -------------Table of contents----------
+
+1. Typography
+2. Layouts
+3. Image-containers
+4. Buttons
+5. Media Query
+
+-----------------------------------------*/
+
+/* ================
+      CSS Reset
+    ===============*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --red: hsl(0, 78%, 62%);
+  --Cyan: hsl(180, 62%, 55%);
+  --Orange: hsl(34, 97%, 64%);
+  --Blue: hsl(212, 86%, 64%);
+
+  --Very-Dark-Blue: hsl(234, 12%, 34%);
+  --Grayish-Blue: hsl(229, 6%, 66%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--Very-Light-Gray);
+  font-size: 15px;
+}
+.wrapper {
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* ================
+      Layouts
+    ===============*/
+.main {
+  width: 85%;
+  margin: 0 auto;
+}
+.main__hero {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 4em;
+  width: min(95%, 600px);
+}
+.grid {
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 1.5em;
+  margin-bottom: 4em;
+  grid-template-areas: "green" "red" "yellow" "blue";
+}
+.containers {
+  background-color: white;
+}
+.containers__green {
+  border-top: 4px solid var(--Cyan);
+  box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 1.5em 0;
+  grid-area: green;
+}
+.containers__red {
+  border-top: 4px solid var(--red);
+  box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 1.5em 0;
+  grid-area: red;
+}
+.containers__yellow {
+  border-top: 4px solid var(--Orange);
+  box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 1.5rem 0;
+  grid-area: yellow;
+}
+.containers__blue {
+  border-top: 4px solid var(--Blue);
+  box-shadow: 0px 15px 30px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 1.5em 0;
+  grid-area: blue;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* ================
+      Typography
+    ===============*/
+
+p {
+  color: var(--Grayish-Blue);
+}
+.main__title {
+  color: var(--Very-Dark-Blue);
+  font-weight: 200;
+  font-size: clamp(1.4rem, 1vw + 1rem, 1.9rem);
+}
+.main__subtitle {
+  color: var(--Very-Dark-Blue);
+  margin: 0.5em 0 1em 0;
+  font-size: clamp(1.4rem, 1vw + 1rem, 1.9rem);
+}
+.main__desc {
+  margin-bottom: 5em;
+  font-size: clamp(1rem, 1vw + 0.7rem, 1.5rem);
+}
+.containers__title {
+  color: var(--Very-Dark-Blue);
+  font-size: clamp(1.2rem, 1vw + 0.9rem, 1.7rem);
+}
+.containers__desc {
+  font-size: clamp(0.8rem, 1vw + 0.5rem, 1.3rem);
+  margin: 0.5em 0 2em 0;
+}
+.footer p {
+  font-size: clamp(0.8rem, 1vw + 0.5rem, 1.3rem);
+}
+/* ================
+       Image-containers
+    ===============*/
+.img__container {
+  margin-left: auto;
+  width: min(20%, 80px);
+}
+/* ================
+      Buttons
+    ===============*/
+
+/* ================
+      Media Query
+    ===============*/
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas:
+      ". red ."
+      "green red blue"
+      "green yellow blue"
+      ". yellow .";
+  }
+  .footer {
+    flex-direction: row;
+  }
+}
